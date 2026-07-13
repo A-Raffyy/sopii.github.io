@@ -1,0 +1,408 @@
+/* --- Variabel Global (Dark Theme) --- */
+:root {
+  --bg-dark-1: #000000; /* Hitam pekat */
+  --bg-dark-2: #121212; /* Abu-abu sangat gelap */
+  --bg-dark-3: #1a0008; /* Hitam dengan rona merah marun (romantis) */
+  --text-light: #f0f0f0; /* Putih redup untuk teks */
+  --text-muted: #a0a0a0; /* Abu-abu untuk teks pendukung */
+
+  /* Penyesuaian Glassmorphism untuk Dark Mode */
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+
+  --accent-color: #ff4d6d; /* Warna merah muda elegan untuk teks penting */
+}
+
+/* --- Reset & Base --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  color: var(--text-light);
+  /* Animated Gradient Background Dark */
+  background: linear-gradient(
+    -45deg,
+    var(--bg-dark-1),
+    var(--bg-dark-2),
+    var(--bg-dark-3),
+    #050505
+  );
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  overflow-x: hidden;
+  cursor: default;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar Dark */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-color);
+}
+
+/* --- Utilities --- */
+.container {
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.text-center {
+  text-align: center;
+}
+.mt-2 {
+  margin-top: 1.5rem;
+}
+.mb-3 {
+  margin-bottom: 2rem;
+}
+.py-4 {
+  padding: 4rem 0;
+}
+
+/* --- Glassmorphism Base --- */
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  box-shadow: var(--glass-shadow);
+  padding: 2rem;
+}
+
+/* --- Animations --- */
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.floating-text {
+  animation: float 3s ease-in-out infinite;
+  font-size: 2.5rem;
+  color: var(--accent-color);
+  margin-bottom: 0.5rem;
+  text-shadow: 0 0 20px rgba(255, 77, 109, 0.4); /* Efek glow pada teks */
+}
+
+/* --- Buttons --- */
+.glow-btn {
+  background: linear-gradient(135deg, #ff4d6d, #c9184a);
+  border: none;
+  padding: 12px 30px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #fff;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(201, 24, 74, 0.5);
+  transition: all 0.3s ease;
+  font-family: "Poppins", sans-serif;
+}
+
+.glow-btn:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 6px 25px rgba(201, 24, 74, 0.8);
+}
+
+.glass-btn {
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  border: 1px solid var(--glass-border);
+  color: white;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.float-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  font-size: 1.5rem;
+  z-index: 100;
+  transition: transform 0.3s;
+}
+.float-btn:hover {
+  transform: scale(1.1) rotate(10deg);
+}
+
+/* --- Section: Hero --- */
+.hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.hero-content {
+  max-width: 90%;
+}
+.subtitle {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+}
+
+/* --- Section: Surat Cinta --- */
+.hidden-section {
+  display: none;
+  opacity: 0;
+  transform: translateY(30px);
+  transition:
+    opacity 1s ease,
+    transform 1s ease;
+  padding: 4rem 0;
+}
+.hidden-section.show {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+.letter-content {
+  margin-top: 1.5rem;
+  line-height: 1.8;
+  text-align: justify;
+  font-size: 1rem;
+  white-space: pre-line;
+  color: #e0e0e0;
+}
+
+/* --- Section: Galeri --- */
+.grid-gallery {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+}
+.gallery-img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 15px;
+  cursor: pointer;
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+.gallery-img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(255, 77, 109, 0.2);
+  border-color: rgba(255, 77, 109, 0.3);
+}
+
+/* Modal Image (Darker Backdrop) */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  padding-top: 60px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85); /* Backdrop gelap */
+  backdrop-filter: blur(10px);
+}
+.modal-content {
+  margin: auto;
+  display: block;
+  max-width: 90%;
+  max-height: 80vh;
+  border-radius: 15px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+  animation: zoomIn 0.3s ease;
+}
+.close-modal {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: #fff; /* X button warna putih */
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+.close-modal:hover {
+  color: var(--accent-color);
+}
+@keyframes zoomIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* --- Section: Alasan --- */
+.grid-reasons {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+.reason-card {
+  text-align: center;
+  transition: transform 0.3s;
+}
+.reason-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(255, 77, 109, 0.3);
+}
+.emoji-large {
+  font-size: 2.5rem;
+  display: block;
+  margin-bottom: 10px;
+}
+
+/* --- Section: Countdown --- */
+.countdown-timer {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+.time-box {
+  background: rgba(255, 255, 255, 0.05); /* Kaca gelap */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 15px;
+  border-radius: 15px;
+  min-width: 80px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+.time-box span {
+  display: block;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--accent-color);
+  text-shadow: 0 0 10px rgba(255, 77, 109, 0.3);
+}
+.time-box small {
+  color: var(--text-muted);
+}
+
+/* --- Footer --- */
+footer {
+  text-align: center;
+  padding: 2rem;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(5px);
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  border-top: 1px solid var(--glass-border);
+}
+
+/* --- Efek Spesial (Hati, Confetti, Cursor) --- */
+.heart {
+  position: fixed;
+  top: -10vh;
+  font-size: 1.2rem;
+  animation: fall linear forwards;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.7; /* Sedikit transparan agar tidak mengganggu di background gelap */
+}
+@keyframes fall {
+  to {
+    transform: translateY(110vh) rotate(360deg);
+  }
+}
+
+.confetti {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  z-index: 999;
+  pointer-events: none;
+}
+
+.sparkle {
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  background-color: #ffd700;
+  box-shadow: 0 0 8px #ffd700; /* Tambahan glow untuk sparkle di dark mode */
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  animation: fadeSparkle 0.8s ease-out forwards;
+}
+@keyframes fadeSparkle {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0) translateY(-20px);
+    opacity: 0;
+  }
+}
+
+/* --- Scroll Animation (Intersection Observer) --- */
+.reveal {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease-out;
+}
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- Media Queries (Tablet & Desktop) --- */
+@media (min-width: 768px) {
+  .floating-text {
+    font-size: 3.5rem;
+  }
+  .subtitle {
+    font-size: 1.3rem;
+  }
+  .grid-gallery {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .grid-reasons {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .time-box {
+    min-width: 100px;
+  }
+}
