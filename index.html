@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Happy Birthday, Sayang ❤️</title>
+
+    <!-- Font Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- 
+    ================================================================
+    PETUNJUK PENGGUNAAN & KUSTOMISASI:
+    1. FOTO: Siapkan 6 foto, ubah namanya jadi foto1.jpg s/d foto6.jpg, masukkan ke folder "images/".
+    2. MUSIK: Siapkan file mp3, ubah nama jadi happy.mp3, masukkan ke folder "music/".
+    3. SURAT CINTA: Kamu bisa mengubah teks surat di dalam file script.js pada variabel 'suratCinta'.
+    4. COUNTDOWN: Ubah tanggal ulang tahun selanjutnya di script.js pada variabel 'targetDate'.
+    ================================================================
+    -->
+
+    <!-- Efek Cursor Sparkle (Wadah) -->
+    <div id="cursor-sparkles"></div>
+
+    <!-- Efek Hati Jatuh (Wadah) -->
+    <div id="falling-hearts"></div>
+
+    <!-- Tombol Musik Mengambang -->
+    <button id="music-btn" class="glass-btn float-btn">
+      <span id="music-icon">🎵</span>
+    </button>
+    <audio id="bg-music" loop>
+      <source src="music/happy.mp3" type="audio/mpeg" />
+    </audio>
+
+    <!-- 1. Hero Section -->
+    <header class="hero" id="hero">
+      <div class="glass-card text-center hero-content">
+        <h1 class="floating-text">Happy Birthday, Sayang ❤️</h1>
+        <p class="subtitle">
+          Hari ini adalah hari spesial untuk orang yang paling berharga di
+          hidupku.
+        </p>
+        <button id="btn-kejutan" class="glow-btn mt-2">Buka Kejutan 🎁</button>
+      </div>
+    </header>
+
+    <!-- 2. Surat Cinta Section (Sembunyi by default) -->
+    <section id="surat-section" class="hidden-section">
+      <div class="container reveal">
+        <div class="glass-card letter-card">
+          <h2 class="text-center">Untuk Kamu...</h2>
+          <div class="letter-content" id="typewriter-text"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Galeri Kenangan -->
+    <section id="galeri" class="py-4">
+      <div class="container reveal">
+        <h2 class="text-center mb-3">Galeri Kenangan Kamu✨</h2>
+        <div class="grid-gallery">
+          <img src="images/foto1.jpeg" alt="Kenangan 1" class="gallery-img" />
+          <img src="images/foto2.jpeg" alt="Kenangan 2" class="gallery-img" />
+          <img src="images/foto3.jpeg" alt="Kenangan 3" class="gallery-img" />
+          <img src="images/foto4.jpeg" alt="Kenangan 4" class="gallery-img" />
+          <img src="images/foto5.jpeg" alt="Kenangan 5" class="gallery-img" />
+          <img src="images/foto6.jpeg" alt="Kenangan 6" class="gallery-img" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Modal Preview Gambar -->
+    <div id="image-modal" class="modal">
+      <span class="close-modal">&times;</span>
+      <img class="modal-content" id="modal-img" />
+    </div>
+
+    <!-- 5. Alasan Aku Sayang Kamu -->
+    <section id="alasan" class="py-4">
+      <div class="container reveal">
+        <h2 class="text-center mb-3">Kenapa Aku Sayang Kamu? 💖</h2>
+        <div class="grid-reasons">
+          <div class="glass-card reason-card">
+            <span class="emoji-large">❤️</span>
+            <p>Selalu ada untukku di setiap keadaan</p>
+          </div>
+          <div class="glass-card reason-card">
+            <span class="emoji-large">😊</span>
+            <p>Senyummu selalu membuat hariku lebih indah</p>
+          </div>
+          <div class="glass-card reason-card">
+            <span class="emoji-large">🌸</span>
+            <p>Kamu adalah tempat pulang dan rumah bagiku</p>
+          </div>
+          <div class="glass-card reason-card">
+            <span class="emoji-large">✨</span>
+            <p>Terima kasih sudah hadir dan melengkapi hidupku</p>
+          </div>
+          <div class="glass-card reason-card">
+            <span class="emoji-large">💖</span>
+            <p>Aku ingin terus mengukir cerita bersamamu</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Countdown Section -->
+    <section id="countdown-section" class="py-4">
+      <div class="container reveal">
+        <div class="glass-card countdown-card text-center">
+          <h2>Menuju Ulang Tahun Berikutnya 🎂</h2>
+          <div class="countdown-timer">
+            <div class="time-box">
+              <span id="days">00</span>
+              <small>Hari</small>
+            </div>
+            <div class="time-box">
+              <span id="hours">00</span>
+              <small>Jam</small>
+            </div>
+            <div class="time-box">
+              <span id="minutes">00</span>
+              <small>Menit</small>
+            </div>
+            <div class="time-box">
+              <span id="seconds">00</span>
+              <small>Detik</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. Footer -->
+    <footer>
+      <p>Dibuat dengan penuh cinta ❤️ untuk kesayanganku</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
